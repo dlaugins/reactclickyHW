@@ -10,10 +10,25 @@ import React from "react";
 
 const styles = {
   headerStyle: {
-    background: "red"
+    backgroundImage: "url(" + "https://tse2.mm.bing.net/th?id=OIP.FzAl6D4GENt1Wx-_0ImqkQHaDg&pid=15.1&P=0&w=323&h=154" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    opacity: "50"
   },
   headingStyle: {
-    fontSize: 100
+    fontSize: 100,
+    height: "300px",
+    position: "center"
+
+  },
+  headingSubStyle: {
+    fontSize: 50,
+    position: "center",
+    marginRight: "15px",
+    marginLeft: "15px",
+    fontWeight:"bold"
+
   }
 };
 
@@ -22,8 +37,18 @@ const styles = {
 function Header() {
   return (
     <header style={styles.headerStyle} className="header">
-      <h1 style={styles.headingStyle}>Welcome</h1>
-    </header>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <h1 style={styles.headingStyle}>Clicky Game!</h1>
+        </div>
+        <div class="col-2" ></div>
+      </div>
+      <div class="row">
+          <h1 style={styles.headingSubStyle}>Click on an image to earn points, 
+          but don't click on any more than once! </h1>
+     </div >
+    </header >
   );
 }
 

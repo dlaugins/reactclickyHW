@@ -10,8 +10,11 @@ import React from "react";
 
 const styles = {
   navbarStyle: {
-    background: "green",
-    justifyContent: "flex-end"
+    background: "blue",
+    height: "100px",
+    fontSize: "25px",
+    fontWeight: "bold",
+    color:"White"
   }
 };
 
@@ -20,9 +23,12 @@ const styles = {
 function Navbar() {
   return (
     <nav style={styles.navbarStyle} className="navbar">
-      <a href="/">Welcome</a>
-    </nav>
-  );
-}
-
+        <div class="row">
+          <div class="col-3">CLICKY GAME</div>
+          <div class="col-4">Click an Image to begin!</div>
+          <div class="col-2">Score: 0  </div>
+          <div class="col-2" >Top Score: 0</div>
+        </div>
+     </nav>
+  )};
 export default Navbar;

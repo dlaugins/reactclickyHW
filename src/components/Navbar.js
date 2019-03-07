@@ -23,11 +23,11 @@ const styles = {
 function Navbar() {
   return (
     <nav style={styles.navbarStyle} className="navbar">
-        <div class="row">
-          <div class="col-3">CLICKY GAME</div>
-          <div class="col-4">Click an Image to begin!</div>
-          <div class="col-2">Score: 0  </div>
-          <div class="col-2" >Top Score: 0</div>
+        <div className="row">
+          <div className="col-3">CLICKY GAME</div>
+          <div className="col-4">Click an Image to begin!</div>
+          <div className="col-2">Score: 0  </div>
+          <div className="col-2" >Top Score: 0</div>
         </div>
      </nav>
   )};

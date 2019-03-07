@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import Data from "../data.json";
 
 
 // By importing the Section.css file, it is added to the DOM whenever this component loads
@@ -9,29 +10,37 @@ import React from "react";
 // Non quoted values default to "pixels", e.g. height, margin, padding
 
 const styles = {
-  sectionStyles: {
-    background: "white"
-  }
+ sectionStyles: {
+   background: "white"
+ }
 };
 
 // We use JSX curly braces to evaluate the style object on the JSX tag
+// console.log(this.state.Data)
+class Section extends Component {
 
-function Section() {
-  return (
-    <section style={styles.sectionStyles} className="section">
-      <h2>Lorem Ipsum Dolor Sit Amet</h2>
-      <p>
-       
-       
-      </p>
-      <p>
-        
-      </p>
-      <p>
-       
-      </p>
-    </section>
-  );
+ state = {
+   data: Data,
+   score: 0,
+   topScore: 0,
+ }
+ componentDidMount() {
+   this.setState({ data:Data });
+ }
+
+ render() {
+   return (
+     // <div>section</div>
+     <div>
+       {
+         this.state.data.map((item, index)=>
+           <img src={item.image} key = {index}
+           className = "disney" alt = "disney" height = "130" width = "130"/>
+         )
+       }
+     </div>
+   )
+ }
 }
 
 export default Section;

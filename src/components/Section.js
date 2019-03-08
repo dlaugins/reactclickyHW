@@ -21,8 +21,7 @@ class Section extends Component {
 
  state = {
    data: Data,
-   score: 0,
-   topScore: 0,
+
  }
  componentDidMount() {
    this.setState({ data:Data });
@@ -39,9 +38,10 @@ class Section extends Component {
  
 }
 
- render() {
+ render(props) {
    return (
      // <div>section</div>
+     <div>
      <div>
        {
          this.state.data.map((item, index)=>
@@ -50,6 +50,9 @@ class Section extends Component {
          )
        }
      </div>
+     <span onClick={() => props.updateScore(props.score)} className="updateScore">
+   </span>
+   </div>
    )
  }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 
 // By importing the Navbar.css file, it is added to the DOM whenever this component loads
@@ -20,14 +20,15 @@ const styles = {
 
 // We use JSX curly braces to evaluate the style object on the JSX tag
 
-function Navbar() {
+
+function Navbar(props) {
   return (
     <nav style={styles.navbarStyle} className="navbar">
         <div className="row">
           <div className="col-3">CLICKY GAME</div>
           <div className="col-4">Click an Image to begin!</div>
-          <div className="col-2">Score: 0  </div>
-          <div className="col-2" >Top Score: 0</div>
+          <div className="col-2">Score: {props.score} </div>
+          <div className="col-2" >Top Score: {props.topScore}</div>
         </div>
      </nav>
   )};

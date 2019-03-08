@@ -9,11 +9,11 @@ import Data from "../data.json";
 // On a style object, we camelCase all property names, and put all of the values in quotes
 // Non quoted values default to "pixels", e.g. height, margin, padding
 
-const styles = {
- sectionStyles: {
-   background: "white"
- }
-};
+// const styles = {
+//  sectionStyles: {
+//    background: "white"
+//  }
+// };
 
 // We use JSX curly braces to evaluate the style object on the JSX tag
 // console.log(this.state.Data)
@@ -28,6 +28,17 @@ class Section extends Component {
    this.setState({ data:Data });
  }
 
+ handleClick(key){
+   console.log(key)
+   let  clickData = this.state.data;
+   if (clickData[key].clicked){
+     console.log("Game over")
+    }
+    clickData[key].clicked = true;
+   this.setState({ data:clickData.sort(()=>  0.5 - Math.random()) });
+ 
+}
+
  render() {
    return (
      // <div>section</div>
@@ -35,7 +46,7 @@ class Section extends Component {
        {
          this.state.data.map((item, index)=>
            <img src={item.image} key = {index}
-           className = "disney" alt = "disney" height = "130" width = "130"/>
+           className = "disney" alt = "disney" height = "130" width = "130" onClick={() => this.handleClick(index) }/>
          )
        }
      </div>

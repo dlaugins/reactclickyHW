@@ -27,7 +27,7 @@ class Section extends Component {
    this.setState({ data:Data });
  }
 
- handleClick(key){
+  handleClick(key){
    console.log(key)
    let  clickData = this.state.data;
    if (clickData[key].clicked){
@@ -38,6 +38,17 @@ class Section extends Component {
  
 }
 
+ handleIncrement = () => {
+  // We always use the setState method to update a component's state
+  // this.setState({ count: this.state.score + 1 });
+  this.props.updateScore(false);
+};
+
+click= (key)=>{
+  this.handleClick(key)
+  this.handleIncrement()
+}
+
  render(props) {
    return (
      // <div>section</div>
@@ -46,12 +57,12 @@ class Section extends Component {
        {
          this.state.data.map((item, index)=>
            <img src={item.image} key = {index}
-           className = "disney" alt = "disney" height = "130" width = "130" onClick={() => this.handleClick(index) }/>
+           className = "disney" alt = "disney" height = "120" width = "120" onClick={() => this.click(index) }/>
          )
        }
      </div>
-     <span onClick={() => props.updateScore(props.score)} className="updateScore">
-   </span>
+     {/* <span onClick={() => props.updateScore(props.score)} className="updateScore"> */}
+   {/* </span> */}
    </div>
    )
  }

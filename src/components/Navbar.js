@@ -25,10 +25,10 @@ function Navbar(props) {
   return (
     <nav style={styles.navbarStyle} className="navbar">
         <div className="row">
-          <div className="col-3">CLICKY GAME</div>
-          <div className="col-4">Click an Image to begin!</div>
+          <div className="col-2">CLICKY GAME</div>
+          <div className="col-5">Click an Image to begin!</div>
           <div className="col-2">Score: {props.score} </div>
-          <div className="col-2" >Top Score: {props.topScore}</div>
+          <div className="col-3" >Top Score: {props.topScore}</div>
         </div>
      </nav>
   )};

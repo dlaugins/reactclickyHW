@@ -28,25 +28,36 @@ class Section extends Component {
  }
 
   handleClick(key){
-   console.log(key)
    let  clickData = this.state.data;
+   
+   
    if (clickData[key].clicked){
-     console.log("Game over")
+     this.props.updateScore(true);
+     console.log("game over");
+     for (var i=0; i < clickData.length; i++){
+    clickData[key].clicked = false;
+     }
     }
-    clickData[key].clicked = true;
-   this.setState({ data:clickData.sort(()=>  0.5 - Math.random()) });
+    else {
+      clickData[key].clicked = true;
+      this.props.updateScore(false);
+    }
+    this.setState({ data:clickData.sort(()=>  0.5 - Math.random()) });
+    
+    
  
 }
 
- handleIncrement = () => {
-  // We always use the setState method to update a component's state
-  // this.setState({ count: this.state.score + 1 });
+ handleIncrement = (key) => {
+  if (!this.state.data[key].clicked){
   this.props.updateScore(false);
+  }
 };
 
 click= (key)=>{
+  this.handleIncrement(key)
   this.handleClick(key)
-  this.handleIncrement()
+
 }
 
  render(props) {

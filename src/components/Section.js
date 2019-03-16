@@ -19,64 +19,62 @@ import Data from "../data.json";
 // console.log(this.state.Data)
 class Section extends Component {
 
- state = {
-   data: Data,
+  state = {
+    data: Data,
+  }
+  componentDidMount() {
+    this.setState({ data: Data });
+  }
 
- }
- componentDidMount() {
-   this.setState({ data:Data });
- }
+  handleClick(key) {
+    let clickData = this.state.data;
 
-  handleClick(key){
-   let  clickData = this.state.data;
-   
-   
-   if (clickData[key].clicked){
-     this.props.updateScore(true);
-     console.log("game over");
-     for (var i=0; i < clickData.length; i++){
-    clickData[key].clicked = false;
-     }
+    console.log("key", key, "clicked", clickData[key].clicked);
+    let gameOver=false
+
+    if (clickData[key].clicked) {
+      gameOver = true;
+      console.log("game over");
+      for (var i = 0; i < clickData.length; i++) {
+        clickData[i].clicked = false;
+      }
     }
     else {
       clickData[key].clicked = true;
+    }
+    this.setState({ data: clickData.sort(() => 0.5 - Math.random()) });
+    this.props.updateScore(gameOver)
+  }
+
+  handleIncrement = (key) => {
+    if (!this.state.data[key].clicked) {
       this.props.updateScore(false);
     }
-    this.setState({ data:clickData.sort(()=>  0.5 - Math.random()) });
-    
-    
- 
-}
+  };
 
- handleIncrement = (key) => {
-  if (!this.state.data[key].clicked){
-  this.props.updateScore(false);
+  click = (key) => {
+    this.handleIncrement(key)
+    this.handleClick(key)
+
   }
-};
 
-click= (key)=>{
-  this.handleIncrement(key)
-  this.handleClick(key)
-
-}
-
- render(props) {
-   return (
-     // <div>section</div>
-     <div>
-     <div>
-       {
-         this.state.data.map((item, index)=>
-           <img src={item.image} key = {index}
-           className = "disney" alt = "disney" height = "120" width = "120" onClick={() => this.click(index) }/>
-         )
-       }
-     </div>
-     {/* <span onClick={() => props.updateScore(props.score)} className="updateScore"> */}
-   {/* </span> */}
-   </div>
-   )
- }
+  render(props) {
+    return (
+      // <div>section</div>
+      <div>
+        <div>
+          {
+            this.state.data.map((item, index) =>
+              <img src={item.image} key={index}
+                className="disney" alt="disney" height="120" width="120" onClick={() => this.click(index)} />
+            )
+          }
+        </div>
+        {/* <span onClick={() => props.updateScore(props.score)} className="updateScore"> */}
+        {/* </span> */}
+      </div>
+    )
+  }
 }
 
 export default Section;

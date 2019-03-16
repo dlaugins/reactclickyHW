@@ -9,11 +9,14 @@ import Data from "../data.json";
 // On a style object, we camelCase all property names, and put all of the values in quotes
 // Non quoted values default to "pixels", e.g. height, margin, padding
 
-// const styles = {
-//  sectionStyles: {
-//    background: "white"
-//  }
-// };
+const styles = {
+ disney: {
+   background: "white",
+   border:"10px solid blue",
+   height:"150px",
+   weight:"150px"
+ }
+};
 
 // We use JSX curly braces to evaluate the style object on the JSX tag
 // console.log(this.state.Data)
@@ -65,7 +68,7 @@ class Section extends Component {
         <div>
           {
             this.state.data.map((item, index) =>
-              <img src={item.image} key={index}
+              <img src={item.image} style = {styles.disney} key={index}
                 className="disney" alt="disney" height="120" width="120" onClick={() => this.click(index)} />
             )
           }

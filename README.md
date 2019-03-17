@@ -1,3 +1,20 @@
+
+#reactclickyhw
+What is this repo or project? 
+
+This project makes a memory type game called "Clicky Game". The game includes 12 Disney characters. The goal is to click the most number of times without repeating a character.
+
+How does it work?
+
+This project inlcudes three components: Navbar.js, Header.js, and Section.js. The Navbar includes the score and total score. The header includes the instructions, and section includes the 12 pictures from the data.json file. Section.js includes the code to handle the click function. When an image is clicked the handleclick function keeps track of the number of times an image is clickced and also contains the code to shuffle the images. Section.js also includes a handle increment function which passes the score to the Update Score function in app.js
+THe app.js file sets the state of score and total score. This file includes the method updateScore. If an image is clicked twice the game is finished and the state is updated. if an image has not been clicked twice, then the score updates by 1. This file includes the render function which sends the score and total score to Navbar.js.
+
+
+Who will use this repo or project?
+It will be used by me to play memory game
+What is the goal of this project?
+I was able to learn to use React to complete this project. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

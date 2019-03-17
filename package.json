@@ -2,7 +2,7 @@
   "name": "reactclickyhw",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dlaugins.github.io/reactclickyhw",
+  "homepage": "https://dlaugins.github.io/reactclickyhw/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.3",
